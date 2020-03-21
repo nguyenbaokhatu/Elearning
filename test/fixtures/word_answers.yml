@@ -2,10 +2,10 @@
 
 one:
   content: MyString
-  word_id: MyString
+  word_id: 1
   correct: false
 
 two:
   content: MyString
-  word_id: MyString
+  word_id: 1
   correct: false

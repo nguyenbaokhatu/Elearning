@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_072533) do
+ActiveRecord::Schema.define(version: 2020_03_21_143006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string "target_id"
-    t.string "user_id"
+    t.integer "target_id"
+    t.integer "user_id"
     t.string "action_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,24 +30,24 @@ ActiveRecord::Schema.define(version: 2020_03_21_072533) do
   end
 
   create_table "lesson_words", force: :cascade do |t|
-    t.string "lesson_id"
-    t.string "word_id"
-    t.string "word_answer_id"
+    t.integer "lesson_id"
+    t.integer "word_id"
+    t.integer "word_answer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "user_id"
-    t.string "category_id"
+    t.integer "user_id"
+    t.integer "category_id"
     t.string "result"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.string "following_id"
-    t.string "follower_id"
+    t.integer "following_id"
+    t.integer "follower_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_072533) do
 
   create_table "word_answers", force: :cascade do |t|
     t.string "content"
-    t.string "word_id"
+    t.integer "word_id"
     t.boolean "correct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_072533) do
 
   create_table "words", force: :cascade do |t|
     t.string "content"
-    t.string "category_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
