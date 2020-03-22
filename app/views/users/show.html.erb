@@ -6,6 +6,7 @@
         <label> fullname: <%= @user.fullname %></label><br>
         <label> avatar: <%= @user.avatar %></label>
       </div>
+      <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
     </div>
   </div>
 </div>
