@@ -1,0 +1,29 @@
+<% provide(:title, 'Edit user') %>
+<% provide(:button_text, 'Save') %>
+<h1>update</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :fullname %>
+      <%= f.text_field :fullname, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control'%>
+
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <div class="form-group text-center">
+        <%= user_avatar(@user, 'edit-profile-photo') %>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

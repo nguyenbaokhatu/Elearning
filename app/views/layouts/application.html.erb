@@ -31,7 +31,11 @@
             </li>
 
             <li class="nav-item nav-link">
-              <%= link_to "Show", users_path(:id), method: :delete %>
+              <%= link_to "Show", user_path(@user), class:"btn btn-primary" %>
+            </li>
+
+            <li class="nav-item nav-link">
+              <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
             </li>
           <% else %>
             <li class="nav-item nav-link">
