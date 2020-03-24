@@ -4,7 +4,7 @@
       <div class="text-left">
         <label> email: <%= @user.email %></label><br>
         <label> fullname: <%= @user.fullname %></label><br>
-        <label> avatar: <%= @user.avatar %></label>
+        <label> avatar: <%= image_tag(@user.avatar_url) if @user.avatar? %></label>
       </div>
       <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
     </div>
