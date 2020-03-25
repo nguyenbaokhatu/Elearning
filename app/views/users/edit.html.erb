@@ -18,9 +18,11 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar ,class:'form-control',placeholder:"Enter image"%>
-      
+      <div class="form-group text-center">
+        <%= user_avatar(@user, 'edit-profile-photo') %>
+        <%= f.file_field :avatar %>
+      </div>
+
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
   </div>
