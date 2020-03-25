@@ -6,7 +6,7 @@
         <label> fullname: <%= @user.fullname %></label><br>
         <label> avatar: <%= image_tag(@user.avatar_url) if @user.avatar? %></label>
       </div>
-      <%= link_to "Edit", edit_user_path(@current_user), class:"btn btn-primary" %>
+      <%= link_to "Edit", edit_user_path(@user), class:"btn btn-primary" %>
     </div>
   </div>
 </div>
