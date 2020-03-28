@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of Elearning module
+
 require_relative 'boot'
 
 require 'rails/all'

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of SessionsHelper module
+
 module SessionsHelper
   def sign_in(user)
     session[:user_id] = user.id
@@ -20,11 +23,11 @@ module SessionsHelper
   end
 
   def current_user
-    if(user_id = session[:user_id])
+    if (user_id = session[:user_id])
       @current_user ||= User.find(user_id)
     elsif(user_id = cookies.signed[:user_id])
       user = User.find(user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user&.authenticated?(cookies[:remember_token])
         login user
         @current_user = user
       end
