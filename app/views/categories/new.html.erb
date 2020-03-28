@@ -1,0 +1,12 @@
+<h1>Admin | Categories</h1>
+<%= form_for :Category ,url: admin_categories_path do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="form-group">
+    <%= f.label:name %>
+    <%= f.text_field :name, class:'form-control',placeholder:"enter category name" %>
+  </div>
+  <div class="">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to 'Home',root_path %>
