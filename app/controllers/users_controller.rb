@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of UsersController class
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -9,10 +12,10 @@ class UsersController < ApplicationController
       UserMailer.with(user: @user).welcome_email.deliver_now
       sign_in @user
       remember @user
-      flash[:success] = "Register success"
+      flash[:success] = 'Register success'
       redirect_to root_path
     else
-      flash.now[:notice] = "Register failed"
+      flash.now[:notice] = 'Register failed'
       render :new
     end
   end
@@ -24,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Update thanh cong"
+      flash[:success] = 'Update thanh cong'
       redirect_to user_path(@user)
     else
       render 'edit'

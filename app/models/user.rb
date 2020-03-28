@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of User class
+
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   attr_accessor :remember_token
@@ -9,14 +12,14 @@ class User < ApplicationRecord
                      format: { with: VALID_EMAIL_REGEX },
                      uniqueness: { case_sensitive: false }
 
-  def User.digest(string)
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ?
                        BCrypt::Engine::MIN_COST :
                        BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
-  def User.new_token
+  def self.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -27,6 +30,7 @@ class User < ApplicationRecord
 
   def authenticated?(remember_token)
     return false if remember_digest.nil?
+    
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

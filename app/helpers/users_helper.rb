@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of UsersHelper module
+
 module UsersHelper
   def user_avatar(user, classes)
     @avatar = user.avatar

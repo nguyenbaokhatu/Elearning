@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# Description/Explanation of UserMailer class
+
 class UserMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
