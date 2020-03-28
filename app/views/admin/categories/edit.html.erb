@@ -1,0 +1,21 @@
+<% provide(:title, 'Edit category') %>
+<% provide(:button_text, 'Save') %>
+<h1>Admin | Categories update</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for([:admin, @category]) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <div class="form-group">
+        <%= f.label:name %>
+        <%= f.text_field :name, class:'form-control',placeholder:"enter category name" %>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit "Update Category", class: 'btn btn-primary btn-block'%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="col-lg-6">
+    <%= link_to "Back", admin_categories_path, class: 'btn btn-link pull-right' %>
+</div>

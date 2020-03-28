@@ -22,10 +22,11 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="color:'black'">
           <li class="nav-item active nav-link">
-            <%= link_to 'Home', root_path %>
+            <%= link_to 'Home', root_path, class:"btn btn-primary" %>
           </li>
 
           <% if signed_in? %>
+            <label for="">You are Logged In, <%= current_user.fullname %></label>
             <li class="nav-item nav-link">
               <%= link_to "Logout", logout_path, method: :delete %>
             </li>
@@ -36,6 +37,10 @@
 
             <li class="nav-item nav-link">
               <%= link_to "Edit", edit_user_path(@current_user), class:"btn btn-primary" %>
+            </li>
+
+            <li class="nav-item nav-link">
+              <%= link_to 'Categories', categories_path, class:"btn btn-primary" %>
             </li>
           <% else %>
             <li class="nav-item nav-link">
