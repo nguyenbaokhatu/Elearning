@@ -4,13 +4,13 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for([:admin, @category]) do |f| %>
-        <%= render 'shared/error_messages' %>
-        <div class="form-group">
-          <%= f.label:name %>
-          <%= f.text_field :name, class:'form-control',placeholder:"enter category name" %>
-        </div>
+      <%= render 'shared/error_messages' %>
+      <div class="form-group">
+        <%= f.label:name %>
+        <%= f.text_field :name, class:'form-control',placeholder:"enter category name" %>
+      </div>
 
-        <%= f.submit "Update Category", class: 'btn btn-primary btn-block'%>
+      <%= f.submit "Update Category", class: 'btn btn-primary btn-block'%>
     <% end %>
   </div>
 </div>
