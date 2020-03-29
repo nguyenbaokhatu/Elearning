@@ -19,8 +19,4 @@ class Lesson < ApplicationRecord
   def learned_words
     word_answers.where(correct: true)
   end
-
-  def lesson_activity(current_user)
-    activities.create(activity_id: id, activity_type: "Lesson", user_id: current_user.id)
-  end
 end
