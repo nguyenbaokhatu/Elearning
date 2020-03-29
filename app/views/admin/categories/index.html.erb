@@ -28,14 +28,10 @@
           <tr>
             <td><%= category.name %></td>
             <td>
-              <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-rounded' do %>
-                  <i class="fa fa-pencil-alt text-muted"></i>
-              <% end %>
-              <%= link_to "Delete", admin_category_path(category),  method: :delete,
+              <%= link_to 'Edit', edit_admin_category_path(category), class: 'btn btn-rounded' %>
+              <%= link_to 'Delete', admin_category_path(category),  method: :delete,
                                                           data: { confirm: 'Are you sure?' },
-                                                          class: 'btn btn-rounded' do %>
-                  <i class="fa fa-trash-alt text-muted"></i>
-              <% end %>
+                                                          class: 'btn btn-rounded' %>
             </td>
           </tr>
         <% end %>
