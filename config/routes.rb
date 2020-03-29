@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   post 'users/sign_in' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users, %i[show edit update] do
+  resources :users, only: [:show, :edit, :update] do
     resources :words, only: [:index]
   end
-  resources :categories, %i[index]
+  resources :categories, only: [:index]
 
   resources :lessons, only: [:create, :show] do
     resources :lesson_words
