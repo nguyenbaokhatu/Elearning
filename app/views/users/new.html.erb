@@ -4,8 +4,8 @@
   </div>
   <div class="row">
     <div class="col-lg-offset-3 col-lg-6">
-      <%= form_for :user, url: users_sign_up_path do |f| %>
-        <%= render 'shared/error_messages' %>
+      <%= form_for (@user, url: users_sign_up_path) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
         <div class="form-group">
           <%= f.label :email %>
