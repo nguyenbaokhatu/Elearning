@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get 'users/sign_in' => 'sessions#new'
   post 'users/sign_in' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users, %i[show edit update]
-  resources :categories, %i[index]
+  resources :users, only: [:show, :edit, :update]
+  resources :categories, only: [:index]
   namespace :admin do
     resources :categories
   end
