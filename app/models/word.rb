@@ -18,10 +18,10 @@ class Word < ApplicationRecord
 
   def check_word_answer
     word_answer = word_answers.collect { |c| c.correct || nil }.compact
-      if word_answer.size == 0
-        errors.add(:word_answers_correct, "can't be blank")
-      elsif word_answer.size > 1
-        errors.add(:word_answers_correct, "can have only one word answer")
-      end
+    if word_answer.size == 0
+      errors.add(:word_answers_correct, "can't be blank")
+    elsif word_answer.size > 1
+      errors.add(:word_answers_correct, "can have only one word answer")
+    end
   end
 end
