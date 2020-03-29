@@ -8,5 +8,4 @@ class Word < ApplicationRecord
 
   validates :content,presence: true, length: { maximum: 20 }
   validates :category_id, presence: true
-  validate :check_word_answer
 end
