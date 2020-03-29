@@ -15,13 +15,13 @@ class Admin::WordsController <ApplicationController
   def create
     category = Category.find(params[:category_id])
     @word = category.words.build(word_params)
-      if @word.save
-        flash[:success] = 'Create word successfully'
-        redirect_to admin_category_words_url
-      else
-        flash[:alert] = 'Create word failed'
-        render 'new'
-      end
+    if @word.save
+      flash[:success] = 'Create word successfully'
+      redirect_to admin_category_words_url
+    else
+      flash[:alert] = 'Create word failed'
+      render 'new'
+    end
   end
 
   def edit
@@ -35,12 +35,12 @@ class Admin::WordsController <ApplicationController
   def update
     @category = Category.find(params[:category_id])
     @word = @category.words.find(params[:id])
-      if @word.update(word_params)
-        flash[:notice] = "Successfully updated Word"
-        redirect_to admin_category_words_url
-      else
-        render 'edit'
-      end
+    if @word.update(word_params)
+      flash[:notice] = "Successfully updated Word"
+      redirect_to admin_category_words_url
+    else
+      render 'edit'
+    end
   end
 
   def destroy

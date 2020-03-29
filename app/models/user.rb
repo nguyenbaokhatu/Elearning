@@ -7,8 +7,6 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :lessons, dependent: :destroy
-  has_many :categories, through: :lessons
-  has_many :lesson_words, through: :lessons
 
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

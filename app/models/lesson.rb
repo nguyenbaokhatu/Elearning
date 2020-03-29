@@ -12,11 +12,7 @@ class Lesson < ApplicationRecord
     (category.words - words).first
   end
 
-  def lesson_results
-    word_answers.where(correct: true).count
-  end
-
   def learned_words
-    word_answers.where(correct: true)
+    words.where(correct: true)
   end
 end

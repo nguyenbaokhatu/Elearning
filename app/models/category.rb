@@ -7,8 +7,4 @@ class Category < ApplicationRecord
   has_many :lesson_words, through: :lessons
 
   validates :name, presence: true
-
-  def get_lesson(current_user)
-    lessons.find_by(user: current_user)
-  end
 end
