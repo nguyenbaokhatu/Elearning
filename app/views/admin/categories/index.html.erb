@@ -20,7 +20,8 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th></th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,8 @@
               <%= link_to edit_admin_category_path(category), class: 'btn btn-rounded' do %>
                   <i class="fa fa-pencil-alt text-muted"></i>
               <% end %>
+            </td>
+            <td>
               <%= link_to admin_category_path(category),  method: :delete,
                                                           data: { confirm: 'Are you sure?' },
                                                           class: 'btn btn-rounded' do %>
