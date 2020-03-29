@@ -1,0 +1,31 @@
+<h1>Admin | Words</h1>
+<%= form_for([:admin, :category, @word]) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :content, class:'form-control',placeholder:"enter your content" %>
+  </div>
+  <%= label_tag :content, "Word Answer" %>
+  <small class="text-muted">(Please check the correct word answer)</small>
+
+  <%= f.fields_for :word_answers do |word_answer| %>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-lg-9">
+          <%= word_answer.text_field :content, class: 'form-control', placeholder: 'Word Answer' %>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= label_tag :correct, "Correct" %>
+            <%= word_answer.check_box :correct, type: 'checkbox' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="text-center">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to 'Home',root_path %>
+<%= link_to 'Back', admin_category_words_path, class: 'btn btn-link pull-right' %>

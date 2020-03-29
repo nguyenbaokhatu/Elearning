@@ -1,0 +1,19 @@
+<div class="">
+  <table>
+    <thead>
+      <tr>
+        <th>content</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= word.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'home',root_path %>
+</div>

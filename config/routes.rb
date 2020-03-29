@@ -7,9 +7,19 @@ Rails.application.routes.draw do
   get 'users/sign_in' => 'sessions#new'
   post 'users/sign_in' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users, %i[show edit update]
+
+  resources :users, %i[show edit update] do
+    resources :words, only: [:index]
+  end
   resources :categories, %i[index]
+
+  resources :lessons, only: [:create, :show] do
+    resources :lesson_words
+  end
+
   namespace :admin do
-    resources :categories
+    resources :categories do
+      resources :words
+    end
   end
 end
