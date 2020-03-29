@@ -4,7 +4,8 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     if @lesson.save
-      redirect_to new_lesson_lesson_word_url(@lesson)
+      flash[:success] = 'Create lesson successfully'
+      redirect_to lesson_url(@lesson)
     end
   end
 
