@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="row">
+        <div class="col-lg-6">
+          <h3><%= @category.name %></h3>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="text-right text-muted">Result: <%= @lesson.lesson_results %> of <%= @category.words.count  %></h3>
+        </div>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Correct Word Answer</th>
+            <th>Word Answer</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lesson.lesson_words.each do |lesson_word| %>
+            <tr>
+              <td><%= lesson_word.word.content %></td>
+              <td><%= lesson_word.word.correct_word_answer.content %></td>
+              <td><%= lesson_word.word_answer.content %></td>
+              <td>
+                <% if lesson_word.word_answer.correct == true %>
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                <% else %>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

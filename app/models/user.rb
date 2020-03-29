@@ -6,6 +6,10 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   has_secure_password
 
+  has_many :lessons, dependent: :destroy
+  has_many :categories, through: :lessons
+  has_many :lesson_words, through: :lessons
+
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -19,6 +23,10 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+  def words_learned
+    lessons.sum(:result)
+  end
+
   def self.new_token
     SecureRandom.urlsafe_base64
   end
@@ -30,7 +38,7 @@ class User < ApplicationRecord
 
   def authenticated?(remember_token)
     return false if remember_digest.nil?
-    
+
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

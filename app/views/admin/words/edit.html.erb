@@ -1,0 +1,38 @@
+<% provide(:title, 'Edit word') %>
+<% provide(:button_text, 'Save') %>
+<h1>Admin | Words update</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for([:admin, :category, @word]) do |f| %>
+      <%= render 'shared/error_messages' %>
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_field :content, class:'form-control',placeholder:"enter your content" %>
+        </div>
+        <%= label_tag :content, "Word Answer" %>
+        <small class="text-muted">(Please check the correct word answer)</small>
+
+        <%= f.fields_for :word_answers do |word_answers| %>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-lg-9">
+                <%= word_answer.text_field :content, class: 'form-control', placeholder: 'Word Answer' %>
+              </div>
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <%= label_tag :correct, "Correct" %>
+                  <%= word_answer.check_box :correct, type: 'checkbox' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.submit "Update Word", class: 'btn btn-primary btn-block' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-6 text-right">
+    <%= link_to "Back", admin_category_words_path, class: 'btn btn-link pull-right' %>
+  </div>
