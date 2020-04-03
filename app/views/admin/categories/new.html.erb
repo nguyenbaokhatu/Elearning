@@ -1,5 +1,6 @@
 <h1>Categories</h1>
-<%= form_for Category.new ,url: admin_categories_path do |f| %>
+<%= form_for([:admin, @category]) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label:name %>
     <%= f.text_field :name, class:'form-control',placeholder:"enter your name" %>
