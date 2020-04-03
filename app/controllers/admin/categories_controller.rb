@@ -11,7 +11,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new category_params
     if @category.save
       flash[:success] = 'Create category successfully'
-      redirect_to root_path
+      redirect_to admin_categories_url
     else
       flash[:alert] = 'Create category failed'
       render :new
