@@ -1,0 +1,30 @@
+<h1>Admin | Words</h1>
+<%= form_for([:admin, @word]) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :content, class:'form-control',placeholder:"enter your content" %>
+  </div>
+
+  <%= f.fields_for :word_answers, @word.word_answers do |ff| %>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-lg-9">
+          <%= ff.label :content %>
+          <%= ff.text_field :content, class: 'form-control', placeholder: 'Word Answer' %>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= ff.label_tag :correct, "Correct" %>
+            <%= ff.check_box :correct, type: 'checkbox' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="text-center">
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to 'Home',root_path %>
+<%= link_to 'Back', admin_categories_path, class: 'btn btn-link pull-right' %>
