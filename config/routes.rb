@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :categories, only: [:index]
   namespace :admin do
+    root 'admin_pages#home'
     resources :categories
     resources :words, only:[:index, :new, :create]
   end
